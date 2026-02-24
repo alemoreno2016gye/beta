@@ -1,51 +1,74 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import "@/App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
+// Pages
+import LoginPage from "@/pages/LoginPage";
+import DashboardPage from "@/pages/DashboardPage";
+import VehiculosPage from "@/pages/VehiculosPage";
+import VehiculoDetallePage from "@/pages/VehiculoDetallePage";
+import MapaGPSPage from "@/pages/MapaGPSPage";
+import AlertasPage from "@/pages/AlertasPage";
+import CombustiblePage from "@/pages/CombustiblePage";
+import ReportesPage from "@/pages/ReportesPage";
+import ConfiguracionPage from "@/pages/ConfiguracionPage";
 
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
-
-  useEffect(() => {
-    helloWorldApi();
-  }, []);
-
-  return (
-    <div>
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
-    </div>
-  );
-};
+// Components
+import Sidebar from "@/components/Sidebar";
+import { Toaster } from "@/components/ui/sonner";
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [usuario, setUsuario] = useState(null);
+
+  useEffect(() => {
+    const savedUser = localStorage.getItem("sgvn_usuario");
+    if (savedUser) {
+      setUsuario(JSON.parse(savedUser));
+      setIsAuthenticated(true);
+    }
+  }, []);
+
+  const handleLogin = (userData) => {
+    setUsuario(userData);
+    setIsAuthenticated(true);
+    localStorage.setItem("sgvn_usuario", JSON.stringify(userData));
+  };
+
+  const handleLogout = () => {
+    setUsuario(null);
+    setIsAuthenticated(false);
+    localStorage.removeItem("sgvn_usuario");
+  };
+
+  if (!isAuthenticated) {
+    return (
+      <>
+        <Toaster position="top-right" richColors />
+        <LoginPage onLogin={handleLogin} />
+      </>
+    );
+  }
+
   return (
-    <div className="App">
+    <div className="app-layout">
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
-        </Routes>
+        <Sidebar usuario={usuario} onLogout={handleLogout} />
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<Navigate to="/dashboard" replace />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/vehiculos" element={<VehiculosPage />} />
+            <Route path="/vehiculos/:id" element={<VehiculoDetallePage />} />
+            <Route path="/mapa" element={<MapaGPSPage />} />
+            <Route path="/alertas" element={<AlertasPage />} />
+            <Route path="/combustible" element={<CombustiblePage />} />
+            <Route path="/reportes" element={<ReportesPage />} />
+            <Route path="/configuracion" element={<ConfiguracionPage />} />
+            <Route path="*" element={<Navigate to="/dashboard" replace />} />
+          </Routes>
+        </main>
+        <Toaster position="top-right" richColors />
       </BrowserRouter>
     </div>
   );
