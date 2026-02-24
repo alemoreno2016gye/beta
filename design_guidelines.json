@@ -1,0 +1,196 @@
+{
+  "design_system": {
+    "identity": {
+      "name": "Sistema de Gestión Vehicular Naval (SGVN)",
+      "tone": "Authoritative, Robust, Tactical, Official",
+      "archetype": "Swiss & High-Contrast (Authority) mixed with The Performance Pro (Precision)",
+      "keywords": ["Naval", "Logistics", "Control", "Security", "Efficiency"]
+    },
+    "typography": {
+      "font_family": {
+        "headings": "Barlow Condensed, sans-serif",
+        "body": "IBM Plex Sans, sans-serif",
+        "mono": "JetBrains Mono, monospace"
+      },
+      "scale": {
+        "h1": "text-4xl font-bold tracking-tight uppercase",
+        "h2": "text-3xl font-semibold tracking-tight uppercase",
+        "h3": "text-2xl font-semibold tracking-tight",
+        "body": "text-base leading-relaxed",
+        "small": "text-sm font-medium tracking-wide uppercase text-muted-foreground"
+      },
+      "imports": [
+        "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      ]
+    },
+    "colors": {
+      "palette": {
+        "primary": {
+          "DEFAULT": "#003366",
+          "foreground": "#FFFFFF",
+          "50": "#E6F0FF",
+          "100": "#CCE0FF",
+          "200": "#99C2FF",
+          "300": "#66A3FF",
+          "400": "#3385FF",
+          "500": "#0066FF",
+          "600": "#0052CC",
+          "700": "#003D99",
+          "800": "#002966",
+          "900": "#001433"
+        },
+        "secondary": {
+          "DEFAULT": "#C5A005",
+          "foreground": "#000000",
+          "50": "#FFFDE6",
+          "100": "#FFFACC",
+          "200": "#FFF599",
+          "300": "#FFF066",
+          "400": "#FFEB33",
+          "500": "#FFE600",
+          "600": "#CCB800",
+          "700": "#998A00",
+          "800": "#665C00",
+          "900": "#332E00"
+        },
+        "accent": {
+          "DEFAULT": "#D32F2F",
+          "foreground": "#FFFFFF"
+        },
+        "background": "#F4F6F8",
+        "surface": "#FFFFFF",
+        "border": "#E2E8F0",
+        "muted": "#64748B"
+      },
+      "semantic": {
+        "success": "#10B981",
+        "warning": "#F59E0B",
+        "error": "#EF4444",
+        "info": "#3B82F6",
+        "naval_dark": "#0A192F"
+      }
+    },
+    "layout": {
+      "grid_mode": "MODE B: High Density Grid",
+      "container": "max-w-[1600px] mx-auto p-6",
+      "spacing": {
+        "section_gap": "gap-6",
+        "component_gap": "gap-4",
+        "internal_padding": "p-4"
+      },
+      "radius": {
+        "default": "rounded-sm",
+        "card": "rounded-md",
+        "button": "rounded-sm"
+      }
+    },
+    "components": {
+      "buttons": {
+        "primary": "bg-[#003366] text-white hover:bg-[#002244] rounded-sm uppercase font-semibold tracking-wide shadow-sm transition-all active:scale-95",
+        "secondary": "bg-[#C5A005] text-black hover:bg-[#A88904] rounded-sm uppercase font-semibold tracking-wide shadow-sm",
+        "outline": "border-2 border-[#003366] text-[#003366] hover:bg-[#003366] hover:text-white rounded-sm uppercase font-semibold tracking-wide"
+      },
+      "cards": {
+        "default": "bg-white border border-slate-200 shadow-sm rounded-md overflow-hidden",
+        "tactical": "bg-white border-t-4 border-[#003366] shadow-md rounded-sm"
+      },
+      "inputs": {
+        "default": "bg-slate-50 border-slate-300 focus:border-[#003366] focus:ring-1 focus:ring-[#003366] rounded-sm"
+      },
+      "badges": {
+        "status_ok": "bg-emerald-100 text-emerald-800 border border-emerald-200 rounded-full px-2 py-0.5 text-xs font-bold uppercase",
+        "status_warning": "bg-amber-100 text-amber-800 border border-amber-200 rounded-full px-2 py-0.5 text-xs font-bold uppercase",
+        "status_critical": "bg-red-100 text-red-800 border border-red-200 rounded-full px-2 py-0.5 text-xs font-bold uppercase"
+      }
+    },
+    "visual_enhancers": {
+      "textures": "Use subtle grid patterns (bg-grid-slate-200/[0.04]) in the dashboard background to give a technical feel.",
+      "shadows": "shadow-sm for cards, shadow-md for floating elements. Avoid large, soft diffusions.",
+      "borders": "1px solid borders are preferred over shadows for separation. Use 'divide-y' and 'divide-x' utilities."
+    },
+    "motion": {
+      "hover": "transition-all duration-200 ease-in-out",
+      "enter": "animate-in fade-in slide-in-from-bottom-2 duration-300",
+      "reduced_motion": "motion-reduce:transition-none motion-reduce:animate-none"
+    }
+  },
+  "assets": {
+    "images": {
+      "vehicles": [
+        {
+          "url": "https://images.pexels.com/photos/33623770/pexels-photo-33623770.jpeg",
+          "alt": "Camioneta Chevrolet D-Max Blanca - Patrullaje",
+          "category": "fleet_pickup"
+        },
+        {
+          "url": "https://images.pexels.com/photos/29344147/pexels-photo-29344147.jpeg",
+          "alt": "Vehículo Táctico Ligero",
+          "category": "fleet_tactical"
+        },
+        {
+          "url": "https://images.pexels.com/photos/33623775/pexels-photo-33623775.jpeg",
+          "alt": "Camión de Transporte Logístico",
+          "category": "fleet_truck"
+        }
+      ],
+      "personnel": [
+        {
+          "url": "https://images.unsplash.com/photo-1771343917024-0b5397850ccd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTN8MHwxfHNlYXJjaHwyfHxtaWxpdGFyeSUyMG5hdmFsJTIwb2ZmaWNlciUyMHBvcnRyYWl0fGVufDB8fHx8MTc3MTkxNzExM3ww&ixlib=rb-4.1.0&q=85",
+          "alt": "Oficial de Logística",
+          "category": "user_profile"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1714272663284-5ce8ab649ecd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTN8MHwxfHNlYXJjaHwxfHxtaWxpdGFyeSUyMG5hdmFsJTIwb2ZmaWNlciUyMHBvcnRyYWl0fGVufDB8fHx8MTc3MTkxNzExM3ww&ixlib=rb-4.1.0&q=85",
+          "alt": "Comandante de Flota",
+          "category": "user_commander"
+        }
+      ],
+      "branding": {
+        "logo_placeholder": "https://images.unsplash.com/photo-1678659372486-767c8777b9c7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NjZ8MHwxfHNlYXJjaHwyfHxuYXZ5JTIwc2VhbCUyMGxvZ28lMjB2ZWN0b3IlMjBzaW1wbGV8ZW58MHx8fHwxNzcxOTE3MTI5fDA&ixlib=rb-4.1.0&q=85",
+        "flag": "https://images.pexels.com/photos/15652224/pexels-photo-15652224.jpeg"
+      }
+    },
+    "icons": {
+      "library": "lucide-react",
+      "preferred_set": ["Anchor", "Ship", "Truck", "MapPin", "Shield", "Activity", "Fuel", "Users", "FileText", "Settings", "AlertTriangle"]
+    }
+  },
+  "instructions_to_main_agent": {
+    "general": [
+      "Implement a 'Naval Command' aesthetic: Deep Blue sidebar, White/Gray content area.",
+      "Use 'Barlow Condensed' for all headings (h1-h3) to give a tactical/military feel.",
+      "Use 'IBM Plex Sans' for all body text, tables, and inputs for maximum legibility.",
+      "Ensure high contrast for all text. No gray-on-gray.",
+      "Use the 'High Density Grid' (Mode B) for the dashboard. Pack data tightly but clearly.",
+      "The sidebar must be fixed on the left, dark navy background (#001433), with white text/icons.",
+      "Active sidebar items should have a gold (#C5A005) left border or accent.",
+      "Use the provided vehicle images for the 'Fleet' section. Do not use placeholders.",
+      "Mock data must be realistic: Use Ecuadorian license plates (e.g., GSA-1234), realistic locations (Guayaquil, Esmeraldas, Manta), and naval ranks (Capitán de Corbeta, Teniente de Navío)."
+    ],
+    "specific_pages": {
+      "dashboard": "Must include a 'Tactical Map' (simulated) and 'Readiness Status' cards (Operativo, Mantenimiento, Crítico).",
+      "vehicle_detail": "Include a 'Service History' timeline and 'Fuel Consumption' chart.",
+      "login": "Simple, secure-looking login with the Naval Seal/Logo centered."
+    }
+  },
+  "universal_guidelines": [
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients",
+    "Don't make generic centered layouts, simplistic gradients, and uniform styling.",
+    "Create depth through layered design elements with z-index hierarchy",
+    "Use glass-morphism effects with backdrop filters (12-24px blur) sparingly, mainly for overlays.",
+    "You MUST NOT apply universal transition. Eg: transition: all. This results in breaking transforms. Always add transitions for specific interactive elements like button, input excluding transforms",
+    "You MUST NOT center align the app container, ie do not add .App { text-align: center; } in the css file. This disrupts the human natural reading flow of text",
+    "Always use modern button styles like pill-shaped, or sharp button with interaction animations & color relevant to the app style",
+    "NEVER: use AI assistant Emoji characters like 🤖🧠💭💡🔮🎯📚🎭🎬🎪🎉🎊🎁🎀🎂🍰🎈🎨🎰💰💵💳🏦💎🪙💸🤑📊📈📉💹🔢🏆🥇 etc for icons.",
+    "Every interaction needs micro-animations - hover states, transitions, parallax effects, and entrance animations. Static = dead.",
+    "Use 2-3x more spacing than feels comfortable. Cramped designs look cheap.",
+    "Subtle grain textures, noise overlays, custom cursors, selection states, and loading animations: separates good from extraordinary.",
+    "Main agent relies on these image URLs. Missing categories (especially sponsor logos) = main agent will use placeholder text which is FORBIDDEN",
+    "Prioritize using pre-existing components from src/components/ui when applicable",
+    "Create new components that match the style and conventions of existing components when needed",
+    "Examine existing components to understand the project's component patterns before creating new ones",
+    "Components MUST use named exports (export const ComponentName = ...)",
+    "Pages MUST use default exports (export default function PageName() {...})",
+    "Use sonner for toasts. Sonner component are located in /app/src/components/ui/sonner.tsx"
+  ]
+}
